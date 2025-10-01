@@ -1,14 +1,14 @@
 services:
   - type: web
-    name: aura-voice-backend
-    env: python
-    buildCommand: |
-      pip install --upgrade pip
-      pip install -r requirements-voice-only.txt --no-cache-dir
-    startCommand: uvicorn main_voice:app --host 0.0.0.0 --port $PORT
-    healthCheckPath: /ping
+    name: aura-vision-assistant
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.0
-      - key: PIP_NO_CACHE_DIR
-        value: "1" 
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: GOOGLE_AI_API_KEY
+        sync: false
+      - key: GOOGLE_CLOUD_API_KEY
+        sync: false 
