@@ -2,13 +2,16 @@ services:
   - type: web
     name: aura-vision-assistant
     runtime: node
-    buildCommand: npm install
+    rootDir: .
+    buildCommand: npm ci
     startCommand: npm start
     healthCheckPath: /api/health
     plan: free
     envVars:
       - key: NODE_VERSION
         value: "20.11.0"
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false"
       - key: GOOGLE_AI_API_KEY
         sync: false
       - key: GOOGLE_CLOUD_API_KEY
