@@ -97,7 +97,14 @@ Thumbs.db
 
 # Google Cloud credentials (IMPORTANT: Keep private!)
 google-credentials.json
+
+# Ignore all JSON except package.json and package-lock.json
 *.json
+# Keep package.json and lock file tracked
+!package.json
+!package-lock.json
+
+
 
 # Unity files (from AURA-Frontend)
 AURA-Frontend/Library/
